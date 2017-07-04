@@ -1,5 +1,21 @@
+echo "===================================="
+echo "==== Elementary OS setup script ===="
+echo "===================================="
+
+while true; do
+    echo "Which terminal will you use?"
+    echo "[1] bash"
+    echo "[2] zhc"
+    echo "[3] none"
+    read -p ":" optTerminal
+    case $optTerminal in
+    	[123]* ) break;;
+        * ) echo "Invalid response.";;
+    esac
+done
+
 sudo apt-get update
-	sudo apt-get -y dist-upgrade
+sudo apt-get -y dist-upgrade
 
 # Properties Commons (to install elementary tweaks
 sudo apt-get -y install software-properties-common
@@ -85,6 +101,26 @@ sudo add-apt-repository ppa:numix/ppa
 sudo apt-get update
 sudo apt-get -y install numix-icon-theme-circle
 
-#tsk tsk tsk bash bro, bash
-cd ~/
-git clone git@github.com:lightyoruichi/bashrc.git .
+case $optTerminal in
+    [1]* )
+        #zsh powerlevel9k
+        sudo apt-get -y install zsh
+        sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        cd ~/Source
+        git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+        git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+        cd ~/
+        https://raw.githubusercontent.com/dividezero/elementary-setup-script/master/.zshrc
+        sudo apt-get -y install zsh-syntax-highlighting
+        cd ~/Source
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+        echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+        break;;
+    [2]* )
+    cd ~/
+    git clone git@github.com:lightyoruichi/bashrc.git .
+    break;;
+    * ) break;;
+esac
+
