@@ -75,8 +75,7 @@ sudo apt-get -y install elementary-tweaks
 ## 4. installing wallpapers
 sudo apt-get -y install elementary-wallpapers-extra
 
-cd ~/
-mkdir Source
+mkdir ~/Source
 cd ~/Source
 git clone https://github.com/vooze/arc-black-ubuntu
 cd arc-black-ubuntu
