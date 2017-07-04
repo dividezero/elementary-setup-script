@@ -111,7 +111,7 @@ case $optTerminal in
         git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
         cd ~/
-        https://raw.githubusercontent.com/dividezero/elementary-setup-script/master/.zshrc
+        wget https://raw.githubusercontent.com/dividezero/elementary-setup-script/master/.zshrc
         sudo apt-get -y install zsh-syntax-highlighting
         cd ~/Source
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
