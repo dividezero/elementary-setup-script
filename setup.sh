@@ -116,11 +116,11 @@ case $optTerminal in
         cd ~/Source
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
         echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-        break;;
+        ;;
     [2]* )
         cd ~/
         git clone git@github.com:lightyoruichi/bashrc.git .
-        break;;
-    * ) break;;
+        ;;
+    * ) ;;
 esac
 
